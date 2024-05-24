@@ -21,7 +21,7 @@ public final class PaisEntity {
 		return new PaisEntity(id);
 	}
 
-	protected static final PaisEntity build() {
+	public static final PaisEntity build() {
 		return new PaisEntity(NumericHelper.ZERO);
 	}
 

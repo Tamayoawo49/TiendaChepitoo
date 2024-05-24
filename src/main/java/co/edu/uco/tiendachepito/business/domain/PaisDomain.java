@@ -7,10 +7,13 @@ public class PaisDomain {
     private int id;
     private String nombre;
 
+
+
     private PaisDomain(final int id,final String nombre) {
         setId(id);
         setNombre(nombre);
     }
+
 
     private PaisDomain(){
         setNombre(TextHelper.EMPTY);
@@ -24,11 +27,11 @@ public class PaisDomain {
         return new PaisDomain();
     }
 
-    private final void setId(int id) {
+    private final void setId(final int id) {
         this.id = id;
     }
 
-    private final void setNombre(String nombre) {
+    private final void setNombre(final String nombre) {
         this.nombre = TextHelper.applyTrim(nombre);
     }
 
@@ -39,4 +42,6 @@ public class PaisDomain {
     public final String getNombre() {
         return nombre;
     }
+
+
 }

@@ -31,7 +31,7 @@ public final class CiudadEntity {
 		return new CiudadEntity(id, nombre, departamento);
 	}
 
-	protected static final CiudadEntity build() {
+	public static final CiudadEntity build() {
 		return new CiudadEntity(ZERO);
 	}
 

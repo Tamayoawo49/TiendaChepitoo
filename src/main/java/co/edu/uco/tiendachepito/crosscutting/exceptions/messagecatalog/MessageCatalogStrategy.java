@@ -6,6 +6,7 @@ import co.edu.uco.tiendachepito.crosscutting.exceptions.messagecatalog.data.Mens
 import co.edu.uco.tiendachepito.crosscutting.exceptions.messagecatalog.impl.MessageCatalogBase;
 import co.edu.uco.tiendachepito.crosscutting.exceptions.messagecatalog.impl.MessageCatalogExternalService;
 import co.edu.uco.tiendachepito.crosscutting.helpers.ObjectHelper;
+import co.edu.uco.tiendachepito.crosscutting.helpers.TextHelper;
 
 public final class MessageCatalogStrategy {
 
