@@ -1,7 +1,11 @@
 package co.edu.uco.tiendachepito.business.assembler.entity;
 
-public interface EntityDomainAssembler<D, E> {
-    D ensamblarDominio(E entity);
+import java.util.List;
 
-    E ensamblarEntidad(D dominio);
+public interface EntityDomainAssembler <D,E> {
+    D ensamblarDominio (E entity);
+
+    E ensamblarEntidad (D dominio);
+
+    List<D> ensamblarListaDominios(List<E> listaEntidades);
 }

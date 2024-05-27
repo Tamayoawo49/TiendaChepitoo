@@ -9,7 +9,7 @@ public class PaisDomain {
 
 
 
-    private PaisDomain(final int id,final String nombre) {
+    public PaisDomain(final int id, final String nombre) {
         setId(id);
         setNombre(nombre);
     }

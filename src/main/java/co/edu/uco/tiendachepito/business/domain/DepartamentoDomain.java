@@ -10,7 +10,7 @@ public class DepartamentoDomain {
 
 
 
-    private DepartamentoDomain(final int id,final String nombre,final PaisDomain pais) {
+    public DepartamentoDomain(final int id, final String nombre, final PaisDomain pais) {
         setId(id);
         setNombre(nombre);
         setPais(pais);

@@ -30,11 +30,11 @@ public final class DepartamentoEntity {
 		return new DepartamentoEntity(id, nombre, pais);
 	}
 
-	protected static final DepartamentoEntity build() {
+	public static final DepartamentoEntity build() {
 		return new DepartamentoEntity(NumericHelper.ZERO);
 	}
 
-	private final void setId(final int id) {
+	public final void setId(final int id) {
 		this.id = id;
 	}
 

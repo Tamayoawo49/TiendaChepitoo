@@ -1,44 +1,45 @@
 package co.edu.uco.tiendachepito.business.assembler.entity.concrete;
 
 import co.edu.uco.tiendachepito.business.assembler.entity.EntityDomainAssembler;
-import co.edu.uco.tiendachepito.business.domain.CiudadDomain;
 import co.edu.uco.tiendachepito.business.domain.DepartamentoDomain;
 import co.edu.uco.tiendachepito.business.domain.PaisDomain;
 import co.edu.uco.tiendachepito.crosscutting.helpers.ObjectHelper;
-import co.edu.uco.tiendachepito.entity.CiudadEntity;
 import co.edu.uco.tiendachepito.entity.DepartamentoEntity;
 import co.edu.uco.tiendachepito.entity.PaisEntity;
+
+import java.util.List;
 
 public final class DepartamentoEntityDomainAssembler implements EntityDomainAssembler<DepartamentoDomain, DepartamentoEntity> {
 
     private static final EntityDomainAssembler<DepartamentoDomain, DepartamentoEntity> instancia = new DepartamentoEntityDomainAssembler();
 
-    private static final EntityDomainAssembler<PaisDomain, PaisEntity> paisAssembler = PaisEntityDomainAssembler
-            .obtenerInstancia();
+    private static final EntityDomainAssembler<PaisDomain, PaisEntity> paisAssembler = new PaisEntityDomainAssembler().obtenerInstancia();
 
-    private DepartamentoEntityDomainAssembler() {
+    DepartamentoEntityDomainAssembler(){
         super();
     }
 
-    public static final  EntityDomainAssembler<DepartamentoDomain, DepartamentoEntity> obtenerInstancia(){
+    public static final EntityDomainAssembler<DepartamentoDomain, DepartamentoEntity> obtenerInstancia(){
         return instancia;
     }
 
     @Override
-    public final DepartamentoDomain ensamblarDominio(final DepartamentoEntity entidad) {
-        var departamentoEntityTmp = ObjectHelper.getObjectHelper().getDefault(entidad,DepartamentoEntity.build(0));
-        var paisDominio = paisAssembler.ensamblarDominio(departamentoEntityTmp.getPais());
-
-        return DepartamentoDomain.crear(departamentoEntityTmp.getId(),
-                departamentoEntityTmp.getNombre(),
-                paisDominio);
+    public DepartamentoDomain ensamblarDominio(DepartamentoEntity entity) {
+        var departamentoEntityTemp = ObjectHelper.getObjectHelper().getDefault(entity, DepartamentoEntity.build());
+        var paisDomain = PaisEntityDomainAssembler.obtenerInstancia().ensamblarDominio(departamentoEntityTemp.getPais());
+        return DepartamentoDomain.crear(departamentoEntityTemp.getId(), departamentoEntityTemp.getNombre(), paisDomain);
     }
 
     @Override
-    public final DepartamentoEntity ensamblarEntidad(final DepartamentoDomain dominio) {
-        var departamentoDomainTmp = ObjectHelper.getObjectHelper().getDefault(dominio,DepartamentoDomain.crear());
-        var paisEntity = paisAssembler.ensamblarEntidad(departamentoDomainTmp.getPais());
+    public DepartamentoEntity ensamblarEntidad(DepartamentoDomain dominio) {
+        var departamentoDomainTemp = ObjectHelper.getObjectHelper().getDefault(dominio, DepartamentoDomain.crear());
+        var paisEntity = PaisEntityDomainAssembler.obtenerInstancia().ensamblarEntidad(departamentoDomainTemp.getPais());
 
-        return DepartamentoEntity.build(departamentoDomainTmp.getId(), departamentoDomainTmp.getNombre(), paisEntity);
+        return DepartamentoEntity.build(departamentoDomainTemp.getId(), departamentoDomainTemp.getNombre(), paisEntity);
+    }
+
+    @Override
+    public List<DepartamentoDomain> ensamblarListaDominios(List<DepartamentoEntity> listaEntidades) {
+        return List.of();
     }
 }

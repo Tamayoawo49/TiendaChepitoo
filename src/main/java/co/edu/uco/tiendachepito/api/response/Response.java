@@ -1,25 +1,26 @@
 package co.edu.uco.tiendachepito.api.response;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Response<T> {
+    private List<String> mensajes = new ArrayList<>();
+    private List<T> datos;
 
-    private List<String> mensajes= new ArrayList<E>();
-    private List<T> dato;
-
-    public List<String> getMensajes() {
+    public final List<String> getMensajes() {
         return mensajes;
     }
 
-    public void setMensajes(List<String> mensajes) {
+    public final void setMensajes(List<String> mensajes) {
         this.mensajes = mensajes;
     }
 
-    public List<T> getDato() {
-        return dato;
+    public final List<T> getDatos() {
+        return datos;
     }
 
-    public void setDato(List<T> dato) {
-        this.dato = dato;
+    public final void setDatos(List<T> datos) {
+        this.datos = datos;
     }
+
 }

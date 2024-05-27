@@ -9,7 +9,7 @@ public class CiudadDomain {
     private String nombre;
     private DepartamentoDomain departamento;
 
-    private CiudadDomain(final int id, final String nombre, final DepartamentoDomain departamento) {
+    public CiudadDomain(final int id, final String nombre, final DepartamentoDomain departamento) {
         setId(id);
         setNombre(nombre);
         setDepartamento(departamento);
@@ -33,7 +33,7 @@ public class CiudadDomain {
         this.id = id;
     }
 
-    private final void setNombre(String nombre) {
+    public final void setNombre(String nombre) {
         this.nombre = TextHelper.applyTrim(nombre);
     }
 

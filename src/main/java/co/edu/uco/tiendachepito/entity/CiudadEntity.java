@@ -35,7 +35,7 @@ public final class CiudadEntity {
 		return new CiudadEntity(ZERO);
 	}
 
-	private final void setId(final int id) {
+	public final void setId(final int id) {
 		this.id = id;
 	}
 
